@@ -1,0 +1,15 @@
+{ application, url,
+[
+    { description, "URL generation and encoding utility library" },
+    { vsn, "1"},
+    { modules, [
+        url
+    ]},
+    { registered, [] },
+    { applications, 
+    [
+        kernel,
+        stdlib
+    ] },
+    { env, []}
+]}.
