@@ -3,6 +3,19 @@
 
 -export( [join/2, join/3, encode/1, decode/1] ).
 
+path_component( Component ) when is_list( Component ) ->
+	path_component( want:binary( Component ) );
+
+path_component( <<$/, Rest/binary>> ) ->
+	path_component( Rest );
+
+path_component( Component ) when binary_part( Component, { byte_size( Component ), -1 } ) =:= <<$/>> ->
+	Length = byte_size( Component ) - 1,
+	<<First:Length/binary, _>> = Component,
+	path_component( First );
+
+path_component( Component ) -> Component.
+
 %%
 %%	Generate a URL by joining a base URL with the provided path and query parameters
 %%
@@ -25,7 +38,7 @@ join( Url, Path, QueryParams ) when is_map( QueryParams ) ->
 
 join( Url, Path, QueryParams ) ->
 	binary_to_list( iolist_to_binary( lists:droplast( lists:flatten( [ 	Url, 
-							[ [ $/, P ] || P <- Path ], 
+							[ [ $/, path_component( P ) ] || P <- Path ], 
 							$?, 
 							[ [ want:string( K ), $=, want:string( V ), $& ] || { K, V } <- QueryParams ] ] ) ) ) ).
 

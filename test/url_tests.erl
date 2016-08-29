@@ -7,6 +7,9 @@ join_test() ->
 	"http://localhost/hello" 			= url:join( "http://localhost", ["hello"] ),
 	"http://localhost/hello" 			= url:join( "http://localhost/", ["hello"] ),
 	"http://localhost/hello/goodbye" 	= url:join( "http://localhost/", ["hello", "goodbye"] ),
+	"http://localhost/hello/goodbye" 	= url:join( "http://localhost/", ["/hello", "goodbye"] ),
+	"http://localhost/hello/goodbye" 	= url:join( "http://localhost/", ["hello/", "goodbye"] ),
+	"http://localhost/hello/goodbye" 	= url:join( "http://localhost/", ["/hello/", "goodbye"] ),
 	"http://localhost/hello?yo=dawg" 	= url:join( "http://localhost/", ["hello"], #{ "yo" => "dawg" } ),
 	"http://localhost/hello?yo=dawg" 	= url:join( "http://localhost", ["hello"], #{ "yo" => "dawg" } ),
 	"http://localhost/hello?yo=dawg" 	= url:join( "http://localhost/", ["hello"], [{"yo", "dawg"}] ).
