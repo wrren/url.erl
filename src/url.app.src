@@ -1,7 +1,7 @@
 { application, url,
 [
     { description, "URL generation and encoding utility library" },
-    { vsn, "1"},
+    { vsn, "0.1.0"},
     { modules, [
         url
     ]},
