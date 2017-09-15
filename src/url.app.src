@@ -1,15 +1,22 @@
 { application, url,
 [
     { description, "URL generation and encoding utility library" },
-    { vsn, "1"},
-    { modules, [
-        url
-    ]},
+    { vsn, "1.0.0" },
     { registered, [] },
-    { applications, 
+    { applications,
     [
-        kernel,
-        stdlib
-    ] },
-    { env, []}
+      kernel,
+      stdlib,
+      want
+    ]},
+    { env,[] },
+    { modules, [] },
+    { maintainers, ["Warren Kenny"] },
+    { licenses, [
+      "MIT"
+    ]},
+    { links, 
+    [
+      {"GitHub", "https://github.com/wrren/url.erl"}
+    ]}
 ]}.
