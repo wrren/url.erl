@@ -1,4 +1,6 @@
-[{<<"want">>,
-  {git,"git://github.com/wrren/want.erl.git",
-       {ref,"13f9f5fd2c27dac12288203caa0be3772023be91"}},
-  0}].
+{"1.1.0",
+[{<<"want">>,{pkg,<<"want">>,<<"0.4.0">>},0}]}.
+[
+{pkg_hash,[
+ {<<"want">>, <<"FB7DBAD8F19A420CB692408EF56BEA670B4C31E8F9558DE9FE422250C1314C4C">>}]}
+].
